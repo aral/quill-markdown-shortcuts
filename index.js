@@ -247,7 +247,7 @@
      const [line, offset] = this.quill.getLine(selection.index)
      const text = line.domNode.textContent
      const lineStart = selection.index - offset
-     if (typeof text !== 'undefined' && text) {
+     if (typeof text !== 'undefined' && text && line.domNode.tagName !== 'PRE') {
        for (let match of this.matches) {
          const matchedText = text.match(match.pattern)
          if (matchedText) {
@@ -267,7 +267,7 @@
      const text = line.domNode.textContent + ' '
      const lineStart = selection.index - offset
      selection.length = selection.index++
-     if (typeof text !== 'undefined' && text) {
+     if (typeof text !== 'undefined' && text && line.domNode.tagName !== 'PRE') {
        for (let match of this.matches) {
          const matchedText = text.match(match.pattern)
          if (matchedText) {
